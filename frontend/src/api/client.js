@@ -1,17 +1,18 @@
-import axios from 'axios';
 import axios from "axios";
 
-const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 const baseURL =
   import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
 
-export const api = axios.create({ baseURL, timeout: 60000 });
-console.log("Environment API URL:", import.meta.env.VITE_API_BASE_URL);
-console.log("Axios Base URL:", baseURL);
+console.log("API Base URL:", baseURL);
+
+export const api = axios.create({
+  baseURL,
+  timeout: 60000,
+});
 
 export async function fetchLogs(params) {
-  const { data } = await api.get('/logs', { params });
-  return data; // { data, pagination }
+  const { data } = await api.get("/logs", { params });
+  return data;
 }
 
 export async function fetchLogById(id) {
@@ -20,18 +21,18 @@ export async function fetchLogById(id) {
 }
 
 export async function fetchStats() {
-  const { data } = await api.get('/logs/stats');
+  const { data } = await api.get("/logs/stats");
   return data;
 }
 
 export async function fetchMeta() {
-  const { data } = await api.get('/logs/meta');
+  const { data } = await api.get("/logs/meta");
   return data;
 }
 
 export async function bulkUploadLogs(logs, onProgress) {
   const { data } = await api.post(
-    '/logs/bulk-upload',
+    "/logs/bulk-upload",
     { logs },
     {
       onUploadProgress: (evt) => {
@@ -41,9 +42,6 @@ export async function bulkUploadLogs(logs, onProgress) {
       },
     }
   );
+
   return data;
 }
-export const api = axios.create({
-  baseURL,
-  timeout: 60000,
-});
