@@ -91,6 +91,7 @@ http://localhost:5000
 
 ```bash
 cd frontend
+
 npm install
 npm run dev
 ```
@@ -172,12 +173,14 @@ Instead of sending all records to the browser, only the required page of data is
 
 ## Future Improvements
 
-- User authentication
-- Role-based access
-- Export logs to CSV or PDF
-- Real-time audit monitoring
-- Alert notifications
-- Dark mode
+- Add a secure login and registration system.
+- Implement separate dashboards for **Admin**, **Security Engineer**, and **Viewer** users.
+- Add JWT-based authentication and authorization.
+- Restrict features based on user roles (Role-Based Access Control).
+- Enable users to update their profiles and reset passwords.
+- Add real-time notifications for critical security events.
+- Support exporting audit logs to CSV and PDF.
+- Improve search performance using Elasticsearch.
 
 ---
 
